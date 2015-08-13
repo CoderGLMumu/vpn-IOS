@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47B2C5C11B7C66E600DEA9C0 /* VPNConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B2C5C01B7C66E600DEA9C0 /* VPNConnector.m */; };
 		47E6A69F1B79D7CC0092FA58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E6A69E1B79D7CC0092FA58 /* main.m */; };
 		47E6A6A21B79D7CC0092FA58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E6A6A11B79D7CC0092FA58 /* AppDelegate.m */; };
 		47E6A6A51B79D7CC0092FA58 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E6A6A41B79D7CC0092FA58 /* ViewController.m */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		47B2C5BF1B7C66E600DEA9C0 /* VPNConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPNConnector.h; sourceTree = "<group>"; };
+		47B2C5C01B7C66E600DEA9C0 /* VPNConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPNConnector.m; sourceTree = "<group>"; };
 		47E6A6991B79D7CC0092FA58 /* vpn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vpn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E6A69D1B79D7CC0092FA58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47E6A69E1B79D7CC0092FA58 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 				47E6A6A91B79D7CC0092FA58 /* Images.xcassets */,
 				47E6A6AB1B79D7CC0092FA58 /* LaunchScreen.xib */,
 				47E6A69C1B79D7CC0092FA58 /* Supporting Files */,
+				47B2C5BF1B7C66E600DEA9C0 /* VPNConnector.h */,
+				47B2C5C01B7C66E600DEA9C0 /* VPNConnector.m */,
 			);
 			path = vpn;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47B2C5C11B7C66E600DEA9C0 /* VPNConnector.m in Sources */,
 				47E6A6A51B79D7CC0092FA58 /* ViewController.m in Sources */,
 				47E6A6A21B79D7CC0092FA58 /* AppDelegate.m in Sources */,
 				47E6A69F1B79D7CC0092FA58 /* main.m in Sources */,
@@ -412,6 +418,7 @@
 				47E6A6BE1B79D7CC0092FA58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		47E6A6BF1B79D7CC0092FA58 /* Build configuration list for PBXNativeTarget "vpnTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +427,7 @@
 				47E6A6C11B79D7CC0092FA58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
