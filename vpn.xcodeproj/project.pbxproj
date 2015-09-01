@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		47B2C5C11B7C66E600DEA9C0 /* VPNConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B2C5C01B7C66E600DEA9C0 /* VPNConnector.m */; };
+		47B2C5C31B7C73AF00DEA9C0 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B2C5C21B7C73AF00DEA9C0 /* NetworkExtension.framework */; };
 		47E6A69F1B79D7CC0092FA58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E6A69E1B79D7CC0092FA58 /* main.m */; };
 		47E6A6A21B79D7CC0092FA58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E6A6A11B79D7CC0092FA58 /* AppDelegate.m */; };
 		47E6A6A51B79D7CC0092FA58 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E6A6A41B79D7CC0092FA58 /* ViewController.m */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		47B2C5BF1B7C66E600DEA9C0 /* VPNConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPNConnector.h; sourceTree = "<group>"; };
 		47B2C5C01B7C66E600DEA9C0 /* VPNConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPNConnector.m; sourceTree = "<group>"; };
+		47B2C5C21B7C73AF00DEA9C0 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		47B2C5C41B7C73AF00DEA9C0 /* vpn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = vpn.entitlements; sourceTree = "<group>"; };
 		47E6A6991B79D7CC0092FA58 /* vpn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vpn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E6A69D1B79D7CC0092FA58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47E6A69E1B79D7CC0092FA58 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -50,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47B2C5C31B7C73AF00DEA9C0 /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +70,7 @@
 		47E6A6901B79D7CC0092FA58 = {
 			isa = PBXGroup;
 			children = (
+				47B2C5C21B7C73AF00DEA9C0 /* NetworkExtension.framework */,
 				47E6A69B1B79D7CC0092FA58 /* vpn */,
 				47E6A6B51B79D7CC0092FA58 /* vpnTests */,
 				47E6A69A1B79D7CC0092FA58 /* Products */,
@@ -84,16 +89,17 @@
 		47E6A69B1B79D7CC0092FA58 /* vpn */ = {
 			isa = PBXGroup;
 			children = (
+				47B2C5C41B7C73AF00DEA9C0 /* vpn.entitlements */,
 				47E6A6A01B79D7CC0092FA58 /* AppDelegate.h */,
 				47E6A6A11B79D7CC0092FA58 /* AppDelegate.m */,
 				47E6A6A31B79D7CC0092FA58 /* ViewController.h */,
 				47E6A6A41B79D7CC0092FA58 /* ViewController.m */,
 				47E6A6A61B79D7CC0092FA58 /* Main.storyboard */,
+				47B2C5BF1B7C66E600DEA9C0 /* VPNConnector.h */,
+				47B2C5C01B7C66E600DEA9C0 /* VPNConnector.m */,
 				47E6A6A91B79D7CC0092FA58 /* Images.xcassets */,
 				47E6A6AB1B79D7CC0092FA58 /* LaunchScreen.xib */,
 				47E6A69C1B79D7CC0092FA58 /* Supporting Files */,
-				47B2C5BF1B7C66E600DEA9C0 /* VPNConnector.h */,
-				47B2C5C01B7C66E600DEA9C0 /* VPNConnector.m */,
 			);
 			path = vpn;
 			sourceTree = "<group>";
@@ -173,6 +179,12 @@
 				TargetAttributes = {
 					47E6A6981B79D7CC0092FA58 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = XU7RZ44HV2;
+						SystemCapabilities = {
+							com.apple.VPNLite = {
+								enabled = 1;
+							};
+						};
 					};
 					47E6A6B11B79D7CC0092FA58 = {
 						CreatedOnToolsVersion = 6.2;
@@ -349,9 +361,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = vpn/vpn.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Feng Wang (E4B2PKZJ9G)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Feng Wang (E4B2PKZJ9G)";
 				INFOPLIST_FILE = vpn/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -359,9 +376,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = vpn/vpn.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Feng Wang (E4B2PKZJ9G)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Feng Wang (E4B2PKZJ9G)";
 				INFOPLIST_FILE = vpn/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

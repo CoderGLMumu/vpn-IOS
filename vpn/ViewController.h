@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VPNConnector.h"
 
+VPNConnector *vpn;
 @interface ViewController : UIViewController
-
+- (IBAction)ConnectButtonPress:(id)sender;
 
 @end
 

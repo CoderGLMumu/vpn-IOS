@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+
 @interface ViewController ()
 
 @end
@@ -16,12 +17,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+//    [[VPNConnector instance] loadConfig];
+//    vpn = [[VPNConnector alloc]init];
+//    [vpn loadConfig];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)ConnectButtonPress:(id)sender {
+//    VPNConnector *connector = [VPNConnector instance];
+//    [connector connect];
+    NSLog(@"button press");
+
+    //    [vpn connect];
+}
 @end

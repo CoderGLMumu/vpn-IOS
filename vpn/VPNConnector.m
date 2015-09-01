@@ -6,6 +6,11 @@
 //  Copyright (c) 2014 Valentin Cherepyanko. All rights reserved.
 //
 
+#define ACCOUNT @"aomfwyae"
+#define PASSWORD @"vpn"
+#define SERVER @"us1.enshi.us"
+#define SECRET @"vpn"
+
 #import "VPNConnector.h"
 
 @implementation VPNConnector
@@ -30,7 +35,7 @@
             [manager setProtocol:[self getProtocol]];
             [manager setOnDemandEnabled:NO];
             [manager setEnabled:YES];
-            [manager setLocalizedDescription:@"Valentin's VPN"];
+            [manager setLocalizedDescription:@"zsh's VPN"];
             
             [manager saveToPreferencesWithCompletionHandler:^(NSError *error) {
                 if(error) {
@@ -45,18 +50,38 @@
 }
 
 - (NEVPNProtocolIPSec*)getProtocol {
-    //    Nevpnpr
+    //    IOS 8 supports two major protocols : IPSec and IKEv2
     NEVPNProtocolIPSec *p = [[NEVPNProtocolIPSec alloc] init];
     p.username = ACCOUNT;
     p.passwordReference = [PASSWORD dataUsingEncoding:NSUTF8StringEncoding];
-    p.serverAddress = @"192.168.0.129";
+    p.serverAddress = SERVER;
+
+    /*
+     IOS 8 supports three authentication Methods:
+     NEVPNIKEAuthenticationMethodNone: Do not authenticate with IPSec server.
+     NEVPNIKEAuthenticationMethodCertificate: Use a certificate and private key as the authentication credential.
+        fill identityData instead sharedSecretReference, identityData must be a NSData in PKCS12 format:
+        p.identityData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"clientCert" ofType:@"p12"]];
+     NEVPNIKEAuthenticationMethodSharedSecret: Use a shared secret as the authentication credential.
+     */
     p.authenticationMethod = NEVPNIKEAuthenticationMethodSharedSecret;
     p.sharedSecretReference = [SECRET dataUsingEncoding:NSUTF8StringEncoding];
-    p.localIdentifier = @"[VPN local identifier]";
-    p.remoteIdentifier = @"[VPN remote identifier]";
+    p.localIdentifier = @"pgfast";
+    p.remoteIdentifier = @"tvpn";
     p.useExtendedAuthentication = YES;
     p.disconnectOnSleep = NO;
     return p;
+}
+
+- (void)connect{
+    NSError *startError;
+    [[NEVPNManager sharedManager].connection startVPNTunnelAndReturnError:&startError];
+    if (startError) {
+        NSLog(@"Start error: %@",startError.localizedDescription);
+    }else{
+        NSLog(@"Connection established!");
+    }
+    
 }
 
 
